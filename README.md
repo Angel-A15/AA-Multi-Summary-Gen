@@ -20,7 +20,7 @@
     * ID Number
     * Email
     * GitHub Username
-    * Taken back to menu after answering
+
   
   * A prompt for Team Manager input including:
     * Name
