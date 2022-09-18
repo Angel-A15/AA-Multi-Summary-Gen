@@ -1,9 +1,9 @@
 // Packages and Links 
-const inquirer = requier('inquirer');
+const inquirer = require('inquirer');
 
 const fs = require('fs');
 
-const ganerateSite = require('./generateSite.js');
+// const ganerateSite = require('./generateSite.js');
 
 
 
@@ -13,7 +13,9 @@ const promptUser = [
 
         //Team Manager Section
         {
+            
             message: 'This section will be used to fill out the team managers credentials.',
+            name: 'team',
         },
         {
             type: 'input',
@@ -41,7 +43,9 @@ const promptUser = [
         },
         //Engineer Section
         {
+            
             message: `This section will be used to fill out the engineers credentials.`,
+            name: 'team',
         },
         {
             type: 'input',
@@ -70,6 +74,7 @@ const promptUser = [
         //Intern Section
         {
             message: `This section will be used to fill out the interns credentials.`,
+            name: 'team',
         },
         {
             type: 'input',
@@ -110,7 +115,7 @@ function writeToFile(fileName, data) {
 };
 
 function init() {
-    inquirer.prompt(questions)
+    inquirer.prompt(promptUser)
     .then(function (userInput) {
         console.log(userInput)
         writeToFile("index.html", generate-site(userInput));
