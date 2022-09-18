@@ -1,9 +1,10 @@
 // Packages and Links 
 const inquirer = requier('inquirer');
 const fs = require('fs');
-const ganerateSite = require('../utils/generateSite.js');
 
+const ganerateSite = require('./generateSite.js');
 
+//Questin prompt Function
 const promptUser = () => {
     //Start of Application
     return inquirer.prompt([
@@ -13,25 +14,25 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'mngrName',
             message: 'Enter the team managers name.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'mngrId',
             message: 'Enter the team managers employee I.D. number.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'mngrEmail',
             message: 'Enter the team managers Email Address.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'mngrNumber',
             message: 'Enter the team managers Office number.',
 
         },
@@ -41,25 +42,25 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'engnrName',
             message: 'Enter the engineers  name.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'engnrId',
             message: 'Enter the engineers emplyee I.D. number.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'engnrEmail',
             message: 'Enter the engineers  Email Address.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'engnrUsername',
             message: 'Enter the engineers GitHub Username.',
 
         },
@@ -69,25 +70,25 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'internName',
             message: 'Enter the interns name.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'internId ',
             message: 'Enter the interns employee I.D. number.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'internEmail',
             message: 'Enter the interns Email Address.',
 
         },
         {
             type: 'input',
-            name: 'name',
+            name: 'internUsername',
             message: 'Enter the interns GitHub Username.',
 
         },

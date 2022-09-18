@@ -1,4 +1,4 @@
-//create the about section
+//create the employee information section
 const generateSections = projectsArr  => {
 
     return `
