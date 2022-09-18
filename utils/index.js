@@ -1,13 +1,16 @@
 // Packages and Links 
 const inquirer = requier('inquirer');
+
 const fs = require('fs');
 
 const ganerateSite = require('./generateSite.js');
 
+
+
 //Questin prompt Function
-const promptUser = () => {
+const promptUser = [
     //Start of Application
-    return inquirer.prompt([
+
         //Team Manager Section
         {
             message: 'This section will be used to fill out the team managers credentials.',
@@ -93,8 +96,17 @@ const promptUser = () => {
 
         },
         //End of Application
-    ])
+
     
+];
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err){
+            return console.log(err);
+        }
+        console.log("Your employee entry has been generated. ")
+    })
 };
 
 function init() {
