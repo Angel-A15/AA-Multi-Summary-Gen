@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Angel-A15/AA-Multi-Summary-Gen/issues"
   },
-  "homepage": "https://github.com/Angel-A15/AA-Multi-Summary-Gen#readme"
+  "homepage": "https://github.com/Angel-A15/AA-Multi-Summary-Gen#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
