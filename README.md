@@ -31,8 +31,16 @@
 ## Description
 
 ## Installation
+This application will not be deployed.
+The client will have to clone the repository in order to access the applications features.
 
 ## Usage
+Instructions:
+1. After cloning repo, open and change directory to the represented folder
+2. Once directory is set up, enter "node index.js" to start
+3. Input information to prompts
+4. Answering all prompts then generates the HTML page is ready to be viewed
+(located in the dist folder)
 
 ## Tests
 
