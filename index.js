@@ -13,9 +13,13 @@ const teamProfile = [];
 
 const employeeInput = () => {
 
+//Questin prompt Functions
+
+//Prompt for Manager Questions
 const managerInput = () => {
+
+    //Questions
     inquirer.prompt([
-        //Team Manager Section
     {
         type: 'input',
         name: 'mngrName',
@@ -57,126 +61,142 @@ const managerInput = () => {
         
 };
 
-
-
-
-
-
-//Questin prompt Function
-const promptUser = [
-    
-    //Start of Application
-
-        //Team Manager Section
+//Prompt for Employee Selection
+const chooseEmployee = () => {
+    inquirer.prompt([
         {
-            
-            message: 'This section will be used to fill out the team managers credentials.',
-            name: 'team',
-        },
-        {
-            type: 'input',
-            name: 'mngrName',
-            message: 'Enter the team managers name.',
-
-        },
-        {
-            type: 'input',
-            name: 'mngrId',
-            message: 'Enter the team managers employee I.D. number.',
-
-        },
-        {
-            type: 'input',
-            name: 'mngrEmail',
-            message: 'Enter the team managers Email Address.',
-
-        },
-        {
-            type: 'input',
-            name: 'mngrNumber',
-            message: 'Enter the team managers Office number.',
-
-        },
-        //Engineer Section
-        {
-            
-            message: `This section will be used to fill out the engineers credentials.`,
-            name: 'team',
-        },
-        {
-            type: 'input',
-            name: 'engnrName',
-            message: 'Enter the engineers  name.',
-
-        },
-        {
-            type: 'input',
-            name: 'engnrId',
-            message: 'Enter the engineers emplyee I.D. number.',
-
-        },
-        {
-            type: 'input',
-            name: 'engnrEmail',
-            message: 'Enter the engineers  Email Address.',
-
-        },
-        {
-            type: 'input',
-            name: 'engnrUsername',
-            message: 'Enter the engineers GitHub Username.',
-
-        },
-        //Intern Section
-        {
-            message: `This section will be used to fill out the interns credentials.`,
-            name: 'team',
-        },
-        {
-            type: 'input',
-            name: 'internName',
-            message: 'Enter the interns name.',
-
-        },
-        {
-            type: 'input',
-            name: 'internId ',
-            message: 'Enter the interns employee I.D. number.',
-
-        },
-        {
-            type: 'input',
-            name: 'internEmail',
-            message: 'Enter the interns Email Address.',
-
-        },
-        {
-            type: 'input',
-            name: 'internUsername',
-            message: 'Enter the interns GitHub Username.',
-
-        },
-        //End of Application
-
-    
-];
-
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if (err){
-            return console.log(err);
+            type: 'list',
+            name: 'profile',
+            message: 'Select which member you would like to add next.',
+            choices: ['Engineer', 'Intern', 'None']
         }
-        console.log("Your employee entry has been generated. ")
+    ])
+    .then(teamChoice => {
+
+        switch(teamChoice.profile) {
+
+            case 'Engineer':
+                engineerInput();
+                break;
+
+            case 'Intern':
+                internInput();
+                break;
+            
+            default:
+                generateProfile();
+        }
     })
+}
+
+//Prompt for Engineer Questions
+const engineerInput = () => {
+
+    //Questions
+    inquirer.prompt([
+    {
+                
+        message: `This section will be used to fill out the engineers credentials.`,
+        name: 'team',
+    },
+    {
+        type: 'input',
+        name: 'engnrName',
+        message: 'Enter the engineers  name.',
+
+    },
+    {
+        type: 'input',
+        name: 'engnrId',
+        message: 'Enter the engineers emplyee I.D. number.',
+
+    },
+    {
+        type: 'input',
+        name: 'engnrEmail',
+        message: 'Enter the engineers  Email Address.',
+
+    },
+    {
+        type: 'input',
+        name: 'engnrUsername',
+        message: 'Enter the engineers GitHub Username.',
+
+    },
+    ])
+    .then((input) => {
+        const getEngineer = new Engineer(input.engnrName, input.engnrId, input.engnrEmail, input.engnrUsername)
+        teamProfile.push(getEngineer)
+        chooseTeam();
+    })
+    .catch((error)=> {
+        console.log(error)
+    })
+     
 };
 
-function init() {
-    inquirer.prompt(promptUser)
-    .then(function (userInput) {
-        console.log(userInput)
-        writeToFile("index.html", generateSite(userInput));
-    });
+//Prompt for Intern Questions
+const internInput = () => {
+
+    //Questions
+    inquirer.prompt([
+    {
+        message: `This section will be used to fill out the interns credentials.`,
+        name: 'team',
+    },
+    {
+        type: 'input',
+        name: 'internName',
+        message: 'Enter the interns name.',
+
+    },
+    {
+        type: 'input',
+        name: 'internId ',
+        message: 'Enter the interns employee I.D. number.',
+
+    },
+    {
+        type: 'input',
+        name: 'internEmail',
+        message: 'Enter the interns Email Address.',
+
+    },
+    {
+        type: 'input',
+        name: 'internUsername',
+        message: 'Enter the interns GitHub Username.',
+
+    },
+    ])
+    .then((input) => {
+        const getIntern = new Intern(input.internName, input.internId, input.internEmail, input.internUsername)
+        teamProfile.push(getIntern)
+        chooseTeam();
+    })
+    .catch((error)=> {
+        console.log(error)
+    })
+     
 };
+
+
+// function writeToFile(fileName, data) {
+//     fs.writeFile(fileName, data, (err) => {
+//         if (err){
+//             return console.log(err);
+//         }
+//         console.log("Your employee entry has been generated. ")
+//     })
+// };
+
+// function init() {
+//     inquirer.prompt(promptUser)
+//     .then(function (userInput) {
+//         console.log(userInput)
+//         writeToFile("index.html", generateSite(userInput));
+//     });
+// };
 
 // Function call to initialize app
 init();
