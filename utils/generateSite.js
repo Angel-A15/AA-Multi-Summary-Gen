@@ -46,13 +46,6 @@ const generateSections = projectsArr  => {
  
 function generateSite(data) {
     return `
-    
-
-    
-    `;
-}
-
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -72,20 +65,26 @@ function generateSite(data) {
         <h1 class="page-title text-secondary bg-dark py-2 px-3">Team Constructor</h1>
         <nav class="flex-row">
           <a class="ml-2 my-1 px-2 py-1 bg-secondary text-dark" href="https://github.com/${
-            header.github
+            data
           }">GitHub</a>
         </nav>
       </div>
     </header>
     <main class="container my-5">
           
-      ${generateAbout(about)}
-      ${generateProjects(projects)}
+      ${generateSections(data)}
+
 
     </main>
     <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>
+      <h3 class="text-dark">&copy; </h3>
     </footer>
   </body>
   </html>
-    `;
+  `;
+
+    
+  
+};
+
+module.exports=generateSite;

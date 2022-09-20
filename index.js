@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 
-// const ganerateSite = require('./generateSite.js');
+const generateSite = require('./utils/generateSite');
 
 
 
@@ -118,7 +118,7 @@ function init() {
     inquirer.prompt(promptUser)
     .then(function (userInput) {
         console.log(userInput)
-        writeToFile("index.html", generate-site(userInput));
+        writeToFile("index.html", generateSite(userInput));
     });
 };
 
