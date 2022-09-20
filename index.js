@@ -5,10 +5,66 @@ const fs = require('fs');
 
 const generateSite = require('./utils/generateSite');
 
+const Manager = require('./lib/Manger');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+const teamProfile = [];
+
+const employeeInput = () => {
+
+const managerInput = () => {
+    inquirer.prompt([
+        //Team Manager Section
+    {
+        type: 'input',
+        name: 'mngrName',
+        message: 'Enter the team managers name.',
+    },
+    {
+        type: 'input',
+        name: 'mngrId',
+        message: 'Enter the team managers employee I.D. number.',
+    },
+    {
+        type: 'input',
+        name: 'mngrEmail',
+        message: 'Enter the team managers Email Address.',
+
+    },
+    {
+        type: 'input',
+        name: 'mngrEmail',
+        message: 'Enter the team managers Email Address.',
+
+    },
+    {
+        type: 'input',
+        name: 'mngrNumber',
+        message: 'Enter the team managers Office number.',
+
+    },
+    ])
+    .then((input) => {
+        const getManager = new Manager(input.mngrName, input.mngrId, input.mngrEmail, input.mngrNumber)
+        teamProfile.push(getManager)
+        chooseTeam();
+    })
+    .catch((error)=> {
+        console.log(error)
+    })
+
+        
+};
+
+
+
+
 
 
 //Questin prompt Function
 const promptUser = [
+    
     //Start of Application
 
         //Team Manager Section
