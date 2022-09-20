@@ -1,50 +1,68 @@
-// //create the employee information section
-// const generateSections = projectsArr  => {
+const generateHtML = [];
 
-//     return `
-//       <section class="my-3" id="Site">
-//         <h2 class="text-dark bg-primary p-2 display-inline-block">Team</h2>
-//         <div class="flex-row justify-space-between">
-//         ${projectsArr
-//           .filter(({ feature }) => feature)
-//           .map(({ name, description, languages, link }) => {
-//             return `
-//             <div class="col-12 mb-2 bg-dark text-light p-3">
-//               <h3 class="portfolio-item-title text-light">${name}</h3>
-//               <h5 class="portfolio-languages">
-//                 Built With:
-//                 ${languages.join(', ')}
-//               </h5>
-//               // <p>${description}</p>
-//               <a href="${link}" class="btn"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
-//             </div>
-//           `;
-//           })
-//           .join('')}
+const genereateTeam = (employeeSections) => {
+
+  const generateManager = manager => {
+
+    return`
+      <div class="card active">
+
+        <h3 class="title">Manager: ${manager.getName()}</h3>
+        
+        <p>
+          ID: ${manager.getmngrName()}
+          EMail:${manager.getEmail}
+          Office Number: ${manager.getO}
+        </p>
+
+      </div>
+    `;
+  }
+
+  const generateEmployee = employee => {
+
+    return`
+      <div class="card active">
+
+      <h3 class="title">Manager: ${manager.getName()}</h3>
+      
+      <p>
+        ID: ${manager.getmngrName()}
+        EMail:${manager.getEmail}
+        Office Number: ${manager.getO}
+      </p>
+
+      </div>
+    `;
+  }
+
+  const generateIntern = intern => {
+
+    return`
+      <div class="card active">
+
+      <h3 class="title">Manager: ${manager.getName()}</h3>
+      
+      <p>
+        ID: ${manager.getmngrName()}
+        EMail:${manager.getEmail}
+        Office Number: ${manager.getO}
+      </p>
+
+      </div>
+    `;
+  }
+
+  generateHtML.push(employeeSections.filter(employee=>employee.getRole()==='Manager').map(manager => generateManager(manager)));
+  generateHtML.push(employeeSections.filter(employee=>employee.getRole()==='Engineer').map(engineer => generateEngineer(engineer)));
+  generateHtML.push(employeeSections.filter(employee=>employee.getRole()==='Intern').map(intern => generateIntern(intern)));
   
-//         ${projectsArr
-//           .filter(({ feature }) => !feature)
-//           .map(({ name, description, languages, link }) => {
-//             return `
-//             <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
-//               <h3 class="portfolio-item-title text-light">${name}</h3>
-//               <h5 class="portfolio-languages">
-//                 Built With:
-//                 ${languages.join(', ')}
-//               </h5>
-//               <p>${description}</p>
-//               <a href="${link}" class="btn mt-auto"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
-//             </div>
-//           `;
-//           })
-//           .join('')}
-//         </div>
-//       </section>
-//     `;
-// };
+  return generateHtML.join('');
 
- 
-function generateSite(data) {
+}
+
+
+module.exports= employeeSections => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -68,7 +86,7 @@ function generateSite(data) {
 
     <main class="container my-5">
           
-      ${generateSections(data)}
+      ${genereateTeam(employeeSections)}
 
     </main>
     <footer class="container text-center py-3">
@@ -78,8 +96,5 @@ function generateSite(data) {
   </html>
   `;
 
-    
-  
-};
+}
 
-module.exports=generateSite;

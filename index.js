@@ -180,23 +180,13 @@ const internInput = () => {
      
 };
 
+const generateProfile = () => {
+    fs.writeFileSync('./dist/index.html', generateSite(teamProfile))
+}
 
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, (err) => {
-//         if (err){
-//             return console.log(err);
-//         }
-//         console.log("Your employee entry has been generated. ")
-//     })
-// };
+employeeInput();
 
-// function init() {
-//     inquirer.prompt(promptUser)
-//     .then(function (userInput) {
-//         console.log(userInput)
-//         writeToFile("index.html", generateSite(userInput));
-//     });
-// };
+};
 
 // Function call to initialize app
 init();
