@@ -1,21 +1,24 @@
-// Packages and Links 
+// Packages and Links to Files
 const inquirer = require('inquirer');
 
 const fs = require('fs');
 
+//File to Structure the Layout
 const generateSite = require('./utils/generateSite');
 
+//Files
 const Manager = require('./lib/Manger');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+//Array will pass in teamProfile
 const teamProfile = [];
 
 const employeeInput = () => {
 
 //Questin prompt Functions
 
-//Prompt for Manager Questions
+    //Prompt for Manager Questions
 const managerInput = () => {
 
     //Questions
@@ -179,11 +182,14 @@ const internInput = () => {
     })
      
 };
+//End of Questin Prompt Functions
 
+//Funciton to transfer data and get generated site
 const generateProfile = () => {
     fs.writeFileSync('./dist/index.html', generateSite(teamProfile))
 }
 
+//Function invoke to start application
 employeeInput();
 
 };
