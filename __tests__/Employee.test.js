@@ -1,8 +1,10 @@
-
+//File Link
 const Employee = require('../lib/Employee.js');
 
+//Employee Example
 const employee = new Employee('Mr. Aguilar', '420132', 'username@gmail.com');
 
+//Employee Input Tests
 test ('return input of employee', () => {
     expect(employee.name).toBe('Mr. Aguilar');
     expect(employee.id).toBe('420132');

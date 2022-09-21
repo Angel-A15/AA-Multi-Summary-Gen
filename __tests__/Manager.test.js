@@ -1,7 +1,10 @@
+//File Link
 const Manager = require('../lib/Manger.js');
 
+//Manager Example
 const manager = new Manager('Ang', '444444', 'us@gmail.com', '691');
 
+//Intern Input Tests
 test('return input for manager', () =>{
     expect(manager.name).toBe('Ang');
     expect(manager.id).toBe('444444');

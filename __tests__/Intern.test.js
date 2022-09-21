@@ -1,7 +1,10 @@
+//File Link
 const Intern = require('../lib/Intern');
 
+//Intern Example
 const intern = new Intern('Angel', '654566', 'eme@gmail.com', 'UTSA');
 
+//Inter Input Tests
 test ('return input of intern',() => {
     expect(intern.name).toBe('Angel');
     expect(intern.id).toBe('654566');

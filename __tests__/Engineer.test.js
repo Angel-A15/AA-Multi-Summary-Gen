@@ -1,7 +1,10 @@
+//File Link
 const Engineer = require('../lib/Engineer.js');
 
+//Engineer Example
 const engineer = new Engineer('Mr.Agui', '123456', 'usern@gmail.com', 'slimie31');
 
+//Engineer Input Tests
 test ('return input of engineer', () => {
     expect(engineer.name).toBe('Mr.Agui');
     expect(engineer.id).toBe('123456');
