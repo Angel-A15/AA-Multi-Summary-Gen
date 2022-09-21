@@ -28,8 +28,8 @@ const genereateTeam = (employeeSections) => {
       <h3 class="title">Engineer: ${engineer.getName()}</h3>
       
       <p>
-        ID: ${engineer.getId()}
-        Email:${engineer.getEmail()}
+        ID: ${engineer.getId()}<br>
+        Email:${engineer.getEmail()}<br>
         GitHub Username: ${engineer.getGitHub()}
       </p>
 
@@ -41,13 +41,13 @@ const genereateTeam = (employeeSections) => {
   const generateIntern = intern => {
 
     return`
-      <div class="card active">
+      <div class="card">
 
       <h3 class="title">Intern: ${intern.getName()}</h3>
       
       <p>
-        ID: ${intern.getId()}
-        Email:${intern.getEmail()}
+        ID: ${intern.getId()}<br>
+        Email:${intern.getEmail()}<br>
         School: ${intern.getSchool()}
       </p>
 
