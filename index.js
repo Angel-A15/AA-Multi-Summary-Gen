@@ -14,7 +14,7 @@ const Intern = require('./lib/Intern');
 //Array will pass in teamProfile
 const teamProfile = [];
 
-const employeeInput = () => {
+const init = () => {
 
 //Questin prompt Functions
 
@@ -55,7 +55,7 @@ const managerInput = () => {
     .then((input) => {
         const getManager = new Manager(input.mngrName, input.mngrId, input.mngrEmail, input.mngrNumber)
         teamProfile.push(getManager)
-        chooseTeam();
+        chooseEmployee();
     })
     .catch((error)=> {
         console.log(error)
@@ -63,34 +63,6 @@ const managerInput = () => {
 
         
 };
-
-//Prompt for Employee Selection
-const chooseEmployee = () => {
-    inquirer.prompt([
-        {
-            type: 'list',
-            name: 'profile',
-            message: 'Select which member you would like to add next.',
-            choices: ['Engineer', 'Intern', 'None']
-        }
-    ])
-    .then(teamChoice => {
-
-        switch(teamChoice.profile) {
-
-            case 'Engineer':
-                engineerInput();
-                break;
-
-            case 'Intern':
-                internInput();
-                break;
-            
-            default:
-                generateProfile();
-        }
-    })
-}
 
 //Prompt for Engineer Questions
 const engineerInput = () => {
@@ -130,7 +102,7 @@ const engineerInput = () => {
     .then((input) => {
         const getEngineer = new Engineer(input.engnrName, input.engnrId, input.engnrEmail, input.engnrUsername)
         teamProfile.push(getEngineer)
-        chooseTeam();
+        chooseEmployee();
     })
     .catch((error)=> {
         console.log(error)
@@ -167,21 +139,49 @@ const internInput = () => {
     },
     {
         type: 'input',
-        name: 'internUsername',
-        message: 'Enter the interns GitHub Username.',
+        name: 'internSchool',
+        message: 'Enter the interns school.',
 
     },
     ])
     .then((input) => {
         const getIntern = new Intern(input.internName, input.internId, input.internEmail, input.internUsername)
         teamProfile.push(getIntern)
-        chooseTeam();
+        chooseEmployee();
     })
     .catch((error)=> {
         console.log(error)
     })
      
 };
+
+//Prompt for Employee Selection
+const chooseEmployee = () => {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'profile',
+            message: 'Select which member you would like to add next.',
+            choices: ['Engineer', 'Intern', 'Done']
+        }
+    ])
+    .then(teamChoice => {
+
+        switch(teamChoice.profile) {
+
+            case 'Engineer':
+                engineerInput();
+                break;
+
+            case 'Intern':
+                internInput();
+                break;
+            
+            default:
+                generateProfile();
+        }
+    })
+}
 //End of Questin Prompt Functions
 
 //Funciton to transfer data and get generated site
@@ -189,10 +189,13 @@ const generateProfile = () => {
     fs.writeFileSync('./dist/index.html', generateSite(teamProfile))
 }
 
+managerInput();
+
 //Function invoke to start application
-employeeInput();
+
 
 };
+
 
 // Function call to initialize app
 init();

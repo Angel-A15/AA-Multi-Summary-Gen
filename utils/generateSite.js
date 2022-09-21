@@ -2,51 +2,53 @@ const generateHtML = [];
 
 const genereateTeam = (employeeSections) => {
 
+  //HTML Section Structure: Manager
   const generateManager = manager => {
 
     return`
-      <div class="card active">
+      <div class="card">
 
         <h3 class="title">Manager: ${manager.getName()}</h3>
-        
         <p>
-          ID: ${manager.getmngrName()}
-          EMail:${manager.getEmail}
-          Office Number: ${manager.getO}
+          ID: ${manager.getId()}<br>
+          Email: ${manager.getEmail()}<br>
+          Office Number: ${manager.getOfficeNumber()}
         </p>
 
       </div>
     `;
   }
 
-  const generateEmployee = employee => {
+  //HTML Section Structure: Engineer
+  const generateEngineer = engineer => {
 
     return`
-      <div class="card active">
+      <div class="card">
 
-      <h3 class="title">Manager: ${manager.getName()}</h3>
+      <h3 class="title">Engineer: ${engineer.getName()}</h3>
       
       <p>
-        ID: ${manager.getmngrName()}
-        EMail:${manager.getEmail}
-        Office Number: ${manager.getO}
+        ID: ${engineer.getId()}
+        Email:${engineer.getEmail()}
+        GitHub Username: ${engineer.getGitHub()}
       </p>
 
       </div>
     `;
   }
 
+  //HTML Section Structure: Intern
   const generateIntern = intern => {
 
     return`
       <div class="card active">
 
-      <h3 class="title">Manager: ${manager.getName()}</h3>
+      <h3 class="title">Intern: ${intern.getName()}</h3>
       
       <p>
-        ID: ${manager.getmngrName()}
-        EMail:${manager.getEmail}
-        Office Number: ${manager.getO}
+        ID: ${intern.getId()}
+        Email:${intern.getEmail()}
+        School: ${intern.getSchool()}
       </p>
 
       </div>
@@ -64,6 +66,7 @@ const genereateTeam = (employeeSections) => {
 
 module.exports= employeeSections => {
     return `
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -71,15 +74,17 @@ module.exports= employeeSections => {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie-edge">
-      <title>MyTeam</title>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
+      <title>My Team</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">      <link rel="stylesheet" href="style.css">
     </head>
   
     <body>
     <header>
-      Team Profile
+    <div class="container flex-row justify-space-between align-center py-3">
+      
+      <h1 class="page-title text-secondary bg-dark py-2 px-3">My Team</h1>
+
+    </div>
     </header>
 
     <div class="container">
@@ -87,9 +92,7 @@ module.exports= employeeSections => {
       ${genereateTeam(employeeSections)}
 
     </div>
-    <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy; </h3>
-    </footer>
+
     <script src="../utils/generateSite.js"></script>
     <script src="../dist/script.js"></script>
   </body>
