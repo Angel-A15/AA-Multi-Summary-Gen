@@ -31,8 +31,8 @@
 ## Description
 
 ## Installation
-This application will not be deployed.
-The client will have to clone the repository in order to access the applications features.
+This application will not be deployed, therefore the client will have to clone the repository in order to access the applications features.
+User will need to enter npm install into cloned folder repo terminal before use
 
 ## Usage
 Instructions:
