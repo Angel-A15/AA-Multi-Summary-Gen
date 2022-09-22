@@ -55,7 +55,7 @@ Instructions:
 5. 
 
 ## Tests
-The tests are going to be located in the "__tests__" folder in the explorer. They can be
+The tests are going to be located in the __tests__ folder in the explorer. They can be
 invoked by entering in the terminal "npm run test"
 
 ## Video Walkthrough
