@@ -20,7 +20,7 @@ const init = () => {
 
     //Prompt for Manager Questions
 const managerInput = () => {
-
+    console.log(`\nThis section will be used to fill out the managers credentials.\n`)
     //Questions
     inquirer.prompt([
     {
@@ -66,14 +66,9 @@ const managerInput = () => {
 
 //Prompt for Engineer Questions
 const engineerInput = () => {
-
+    console.log(`\nThis section will be used to fill out the engineers credentials.\n`)
     //Questions
     inquirer.prompt([
-    {
-                
-        message: `This section will be used to fill out the engineers credentials.`,
-        name: 'team',
-    },
     {
         type: 'input',
         name: 'engnrName',
@@ -112,13 +107,10 @@ const engineerInput = () => {
 
 //Prompt for Intern Questions
 const internInput = () => {
-
+    console.log(`\nThis section will be used to fill out the interns credentials.\n`)
     //Questions
     inquirer.prompt([
-    {
-        message: `This section will be used to fill out the interns credentials.`,
-        name: 'team',
-    },
+   
     {
         type: 'input',
         name: 'internName',
@@ -127,9 +119,8 @@ const internInput = () => {
     },
     {
         type: 'input',
-        name: 'internId ',
+        name: 'internId',
         message: 'Enter the interns employee I.D. number.',
-
     },
     {
         type: 'input',
@@ -145,7 +136,7 @@ const internInput = () => {
     },
     ])
     .then((input) => {
-        const getIntern = new Intern(input.internName, input.internId, input.internEmail, input.internUsername)
+        const getIntern = new Intern(input.internName, input.internId, input.internEmail, input.internSchool)
         teamProfile.push(getIntern)
         chooseEmployee();
     })
